@@ -1,9 +1,11 @@
-import NavBar from "../common/navbar"
+import Home from "../modules/home";
 
 const HomePage = () => {
-    return <>
-    <NavBar></NavBar>
+  return (
+    <>
+      <Home />
     </>
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
