@@ -1,12 +1,14 @@
 import NavBar from "../navbar";
 import PropTypes from "prop-types";
+import Footer from "../footer";
 
 const MainLayout = (props) => {
   const { children } = props;
   return (
-    <div className="w-full">
+    <div className="w-full min-h-screen flex flex-col items-between">
       <NavBar />
-      {children}
+      <div className="flex-grow">{children}</div>
+      <Footer />
     </div>
   );
 };
