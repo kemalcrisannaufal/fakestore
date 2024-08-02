@@ -3,25 +3,18 @@ import { useParams } from "react-router-dom";
 import { getDetailProduct } from "../../services/productService";
 import MainLayout from "../../common/layout/MainLayout";
 import Button from "../../common/components/elements/Button";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState({
-    title: "",
-    price: 0,
-    description: "",
-    category: "",
-    image: "",
-    rating: {
-      rate: 0,
-      count: 0,
-    },
-  });
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getDetailProduct(id, (response) => {
-      console.log(response);
       setProduct(response.data);
+      setLoading(false);
     });
   }, [id]);
 
@@ -31,11 +24,15 @@ const ProductDetail = () => {
         <div className="w-full lg:flex lg:px-36">
           <div className="px-10 lg:w-1/3 lg:p-2 h-64 lg:h-80 flex justify-center items-center overflow-hidden">
             <div className="w-full flex justify-center h-80 w-80 lg:border-none overflow-hidden">
-              <img
-                src={product.image}
-                alt={product.title}
-                className="w-full h-full object-contain scale-75"
-              />
+              {loading ? (
+                <Skeleton height={320} width={320} />
+              ) : (
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-full object-contain scale-75"
+                />
+              )}
             </div>
           </div>
 
@@ -44,25 +41,28 @@ const ProductDetail = () => {
               <div className="md:flex justify-between items-start">
                 <div className="md:mr-20">
                   <h1 className="text-neutral-600 font-bold text-xl md:text-3xl">
-                    {product.title}
+                    {loading ? <Skeleton width={300} /> : product.title}
                   </h1>
                   <p className="mt-2 text-neutral-500 font-medium">
-                    Review ({product.rating.rate}) from {product.rating.count}{" "}
-                    users
+                    {loading ? (
+                      <Skeleton width={200} />
+                    ) : (
+                      `Review (${product.rating.rate}) from ${product.rating.count} users`
+                    )}
                   </p>
                 </div>
                 <p className="text-4xl font-bold text-neutral-600 hidden md:block">
-                  ${product.price}
+                  {loading ? <Skeleton width={100} /> : `$${product.price}`}
                 </p>
-              </div>  
+              </div>
               <p className="mt-5 text-sm text-justify sm:text-md lg:text-lg text-neutral-500">
-                {product.description}
+                {loading ? <Skeleton count={3} /> : product.description}
               </p>
             </div>
 
             <div className="mt-5 w-full flex justify-between md:justify-end items-center">
               <p className="text-4xl font-bold text-neutral-600 md:hidden">
-                ${product.price}
+                {loading ? <Skeleton width={100} /> : `$${product.price}`}
               </p>
               <Button label={"Add To Cart"} onClick={() => {}} />
             </div>
