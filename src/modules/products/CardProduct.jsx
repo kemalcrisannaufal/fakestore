@@ -16,7 +16,7 @@ const CardProduct = (props) => {
     loading,
   } = props;
   return (
-    <div className="w-48 h-72 lg:w-64 rounded-lg shadow-lg border-2 border-neutral-300 flex flex-col pb-3 hover:scale-105 transition-all duration-300 ease-in-out">
+    <div className="w-36 h-72 lg:w-64 rounded-lg shadow-lg border-2 border-neutral-300 flex flex-col pb-3 hover:scale-105 transition-all duration-300 ease-in-out">
       <div className="w-full h-full lg:w-64 lg:h-56 p-5 flex justify-center items-center border-b-2 overflow-hidden">
         <Link to={`/products/${id}`}>
           {loading ? (
@@ -40,35 +40,40 @@ const CardProduct = (props) => {
               {title}
             </p>
           )}
-          <div className="flex items-center gap-2 text-md font-medium text-neutral-500 mt-2">
-            <div className="flex items-center gap-2">
+          <div className="w-full flex items-center gap-2 text-md font-medium text-neutral-500 mt-2">
+            <div className="flex items-center gap-1">
               {loading ? (
                 <Skeleton count={1} />
               ) : (
-                <p className="text-sm md:text-md"> {rating.rate}</p>
+                <p className="text-xs sm:text-sm md:text-md"> {rating.rate}</p>
               )}
 
               <FaStar className="text-orange-500" />
             </div>
-            {loading ? (
-              <Skeleton count={1} />
-            ) : (
-              <p className="text-sm md:text-md">| {rating.count} reviews</p>
-            )}
+            <div>
+              {loading ? (
+                <Skeleton count={1} />
+              ) : (
+                <p className="text-xs sm:text-sm   md:text-md">
+                  | {rating.count} reviews
+                </p>
+              )}
+            </div>
           </div>
         </div>
 
-        <div className="w-full flex justify-between items-center mt-4">
+        <div className="w-full md:flex  justify-between items-center mt-4">
           {loading ? (
             <Skeleton count={1} />
           ) : (
-            <p className="text-sm md:text-xl font-bold text-neutral-700">
+            <p className="text-md text-center md:text-start md:text-xl font-bold text-neutral-700">
               ${price}
             </p>
           )}
 
           <Button
             label={"Add to Cart"}
+            classname={"w-full flex justify-center mt-2"}
             icon={<FaCartShopping className="hidden md:block" />}
             onClick={() => {
               window.href.location = "/";

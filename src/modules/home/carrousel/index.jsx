@@ -16,7 +16,7 @@ const HomeCarrousel = () => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center mx-auto lg:px-36 mt-1 lg:mt-5">
+    <div className="w-full flex justify-center items-center mx-auto px-5 lg:px-36 mt-1 lg:mt-5">
       <div className="w-full max-w-5xl p-5">
         <Slider {...settings} className="mx-auto">
           {carrouselImages.map((item, index) => (

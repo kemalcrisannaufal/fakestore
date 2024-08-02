@@ -14,7 +14,7 @@ const ProductSection = () => {
 
   return (
     <>
-      <div className="w-full flex flex-col justify-center items-center mt-10 lg:px-36">
+      <div className="w-full flex flex-col justify-center items-center mt-10 px-5 lg:px-36">
         <h1 className="text-2xl text-neutral-700 font-medium">Our Products</h1>
 
         <div className="my-5 grid grid-cols-3 gap-2 lg:gap-5">

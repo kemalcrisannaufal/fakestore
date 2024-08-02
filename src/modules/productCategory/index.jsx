@@ -23,7 +23,7 @@ const ProductCategory = () => {
         <h1 className="text-xl md:text-3xl font-bold capitalize text-neutral-800">
           {name}
         </h1>
-        <div className="flex flex-wrap justify-center gap-5 mt-5">
+        <div className="flex flex-wrap justify-center gap-2 lg:gap-5 mt-5">
           {loading
             ? Array(4)
                 .fill()

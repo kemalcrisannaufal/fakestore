@@ -18,6 +18,7 @@ const Products = () => {
       <h1 className="text-xl md:text-3xl font-bold text-neutral-800 capitalize">
         All Products
       </h1>
+
       <div className="w-full flex flex-wrap justify-center gap-5 mt-5">
         {loading
           ? Array(10)
