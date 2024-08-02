@@ -1,19 +1,20 @@
 import categories from "../constant/categories";
 import NavigationMenu from "./NavigationMenu";
 import { FaUser, FaShoppingCart, FaSearch, FaGlobe } from "react-icons/fa";
-
+import Logo from "../components/elements/Logo";
 import NavbarItem from "./NavbarItem";
 
 const NavBar = () => {
   return (
     <>
-      <div className="w-full h-max py-5 lg:px-20">
+      <div className="w-full  h-max py-5 px-5 lg:px-20">
         <div className="flex justify-between">
           <div className="flex gap-3">
             <NavbarItem
               icon={<FaGlobe />}
               label={"Language"}
               onClick={() => {}}
+              classname={"hidden md:flex"}
             />
             <NavbarItem label={"Contact"} onClick={() => {}} />
           </div>
@@ -32,20 +33,16 @@ const NavBar = () => {
               icon={<FaSearch />}
               label={"Search"}
               onClick={() => {}}
+              classname={"hidden md:flex"}
             />
           </div>
         </div>
 
-        <div className="w-full flex justify-center items-center py-4 bg-white">
-          <h1 className="text-5xl text-neutral-600 font-bold ml-4 font-poppins tracking-wide">
-            KCR FAKESTORE
-          </h1>
-        </div>
-
-        <hr />
+        <Logo />
+        <hr className="border-1 border-neutral-400" />
 
         <div className="w-full flex justify-center items-center">
-          <ul className="flex gap-10">
+          <ul className="flex gap-2 lg:gap-10">
             {categories.map((item) => (
               <li key={item.id}>
                 <NavigationMenu linkTo={item.path} label={item.name} />

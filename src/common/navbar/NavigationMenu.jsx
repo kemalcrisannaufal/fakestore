@@ -6,7 +6,9 @@ const NavigationMenu = (props) => {
   return (
     <Link to={linkTo}>
       <div className="p-1 hover:underline">
-        <p className="text-black capitalize">{label}</p>
+        <p className="text-xs sm:text-md md:text-lg  text-black capitalize">
+          {label}
+        </p>
       </div>
     </Link>
   );

@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 const MainLayout = (props) => {
   const { children } = props;
   return (
-    <>
+    <div className="w-full">
       <NavBar />
       {children}
-    </>
+    </div>
   );
 };
 
