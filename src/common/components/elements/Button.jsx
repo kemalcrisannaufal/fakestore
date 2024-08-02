@@ -5,12 +5,12 @@ const Button = (props) => {
   return (
     <button
       type={type}
-      className={`block border py-2 px-3 bg-neutral-700 text-white rounded-lg ${classname}`}
+      className={`block border py-2 px-3 bg-neutral-700 text-white rounded-lg hover:opacity-90 ${classname}`}
       onClick={onClick}
     >
       <div className="flex items-center gap-2">
-        <p>{label}</p>
-        <div>{icon}</div>
+        <p className="text-sm md:text-lg">{label}</p>
+        {icon}
       </div>
     </button>
   );

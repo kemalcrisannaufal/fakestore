@@ -13,7 +13,7 @@ const Home = () => {
       <div className="w-full flex justify-center">
         <Button
           label={"More"}
-          classname={"px-10"}
+          classname={"px-16"}
           onClick={() => {
             navigate("/products");
           }}
