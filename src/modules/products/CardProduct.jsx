@@ -16,11 +16,11 @@ const CardProduct = (props) => {
     loading,
   } = props;
   return (
-    <div className="lg:w-64 rounded-lg shadow-lg border-2 border-neutral-300 flex flex-col pb-3 hover:scale-105 transition-all duration-300 ease-in-out">
+    <div className="w-48 h-72 lg:w-64 rounded-lg shadow-lg border-2 border-neutral-300 flex flex-col pb-3 hover:scale-105 transition-all duration-300 ease-in-out">
       <div className="w-full h-full lg:w-64 lg:h-56 p-5 flex justify-center items-center border-b-2 overflow-hidden">
         <Link to={`/products/${id}`}>
           {loading ? (
-            <Skeleton   />
+            <Skeleton />
           ) : (
             <img
               src={image}
@@ -36,24 +36,40 @@ const CardProduct = (props) => {
           {loading ? (
             <Skeleton count={2} />
           ) : (
-            <p className="text-xl font-semibold text-neutral-600 text-justify line-clamp-2">
+            <p className="text-sm sm:text-md md:text-xl font-semibold text-neutral-600 text-justify line-clamp-2">
               {title}
             </p>
           )}
           <div className="flex items-center gap-2 text-md font-medium text-neutral-500 mt-2">
             <div className="flex items-center gap-2">
-              {rating.rate}
+              {loading ? (
+                <Skeleton count={1} />
+              ) : (
+                <p className="text-sm md:text-md"> {rating.rate}</p>
+              )}
+
               <FaStar className="text-orange-500" />
             </div>
-            <p>| {rating.count} reviews</p>
+            {loading ? (
+              <Skeleton count={1} />
+            ) : (
+              <p className="text-sm md:text-md">| {rating.count} reviews</p>
+            )}
           </div>
         </div>
 
         <div className="w-full flex justify-between items-center mt-4">
-          <p className="text-xl font-bold text-neutral-700">${price}</p>
+          {loading ? (
+            <Skeleton count={1} />
+          ) : (
+            <p className="text-sm md:text-xl font-bold text-neutral-700">
+              ${price}
+            </p>
+          )}
+
           <Button
-            label={"Add To Cart"}
-            icon={<FaCartShopping />}
+            label={"Add to Cart"}
+            icon={<FaCartShopping className="hidden md:block" />}
             onClick={() => {
               window.href.location = "/";
             }}
@@ -65,7 +81,7 @@ const CardProduct = (props) => {
 };
 
 CardProduct.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.number,
   image: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,

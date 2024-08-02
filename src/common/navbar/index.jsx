@@ -45,7 +45,10 @@ const NavBar = () => {
           <ul className="flex gap-2 lg:gap-10">
             {categories.map((item) => (
               <li key={item.id}>
-                <NavigationMenu linkTo={item.path} label={item.name} />
+                <NavigationMenu
+                  linkTo={`/products/category/${item.name}`}
+                  label={item.name}
+                />
               </li>
             ))}
           </ul>
