@@ -1,12 +1,13 @@
-import NavBar from "../../common/navbar/index";
 import ProductSection from "./products";
+import HomeCarrousel from "./carrousel";
+import MainLayout from "../../common/layout/MainLayout";
 
 const Home = () => {
   return (
-    <>
-      <NavBar />
+    <MainLayout>
+      <HomeCarrousel />
       <ProductSection />
-    </>
+    </MainLayout>
   );
 };
 

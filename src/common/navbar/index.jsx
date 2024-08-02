@@ -7,7 +7,7 @@ import NavbarItem from "./NavbarItem";
 const NavBar = () => {
   return (
     <>
-      <div className="w-full h-max py-5 lg:px-20 border-2">
+      <div className="w-full h-max py-5 lg:px-20">
         <div className="flex justify-between">
           <div className="flex gap-3">
             <NavbarItem
