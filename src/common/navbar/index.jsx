@@ -3,8 +3,10 @@ import NavigationMenu from "./NavigationMenu";
 import { FaUser, FaShoppingCart, FaSearch, FaGlobe } from "react-icons/fa";
 import Logo from "../components/elements/Logo";
 import NavbarItem from "./NavbarItem";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
+  const navigation = useNavigate();
   return (
     <>
       <div className="w-full  h-max py-5 px-5 lg:px-20">
@@ -27,7 +29,9 @@ const NavBar = () => {
             <NavbarItem
               icon={<FaShoppingCart />}
               label={"Cart"}
-              onClick={() => {}}
+              onClick={() => {
+                navigation("/cart");
+              }}
             />
             <NavbarItem
               icon={<FaSearch />}

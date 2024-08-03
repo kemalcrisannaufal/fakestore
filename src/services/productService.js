@@ -32,3 +32,12 @@ export const getProductsByCategory = (category, callback) => {
       console.log(error);
     });
 };
+
+export const getSingleProduct = (id, callback) => {
+  axios
+    .get(`https://fakestoreapi.com/products/${id}`)
+    .then((response) => {
+      callback(response);
+    })
+    .catch((error) => console.log(error));
+};
