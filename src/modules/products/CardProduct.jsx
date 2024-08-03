@@ -16,7 +16,7 @@ const CardProduct = (props) => {
     loading,
   } = props;
   return (
-    <div className="w-36 h-72 lg:w-64 rounded-lg shadow-lg border-2 border-neutral-300 flex flex-col pb-3 hover:scale-105 transition-all duration-300 ease-in-out">
+    <div className="w-36 h-72 lg:h-96 lg:w-64 rounded-lg shadow-lg border-2 border-neutral-300 flex flex-col pb-3 hover:scale-105 transition-all duration-300 ease-in-out">
       <div className="w-full h-full lg:w-64 lg:h-56 p-5 flex justify-center items-center border-b-2 overflow-hidden">
         <Link to={`/products/${id}`}>
           {loading ? (
@@ -73,7 +73,7 @@ const CardProduct = (props) => {
 
           <Button
             label={"Add to Cart"}
-            classname={"w-full flex justify-center mt-2"}
+            classname={"w-full lg:w-max flex justify-center mt-2"}
             icon={<FaCartShopping className="hidden md:block" />}
             onClick={() => {
               window.href.location = "/";

@@ -19,7 +19,7 @@ const Products = () => {
         All Products
       </h1>
 
-      <div className="w-full flex flex-wrap justify-center gap-5 mt-5">
+      <div className="w-full flex flex-wrap justify-center gap-2 lg:gap-5 mt-5">
         {loading
           ? Array(10)
               .fill()
